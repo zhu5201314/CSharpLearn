@@ -11,6 +11,7 @@ namespace UnitTestProject1
         {
             //jjjjj
             // CI
+            //batch
         }
     }
 }

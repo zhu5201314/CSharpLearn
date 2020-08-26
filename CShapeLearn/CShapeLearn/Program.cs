@@ -8,6 +8,8 @@ namespace CShapeLearn
 {
     class Program
     {
+         
+        //hhhh
         string color = "red";
         static void Main(string[] args)
         {

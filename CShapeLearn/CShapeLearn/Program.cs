@@ -3,24 +3,95 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+
 
 namespace CShapeLearn
 {
+    enum Level
+    {
+        Low,
+        Medium,
+        High
+    }
+    class Animal  // Base class (parent) 
+    {
+        public virtual void animalSound()
+        {
+            Console.WriteLine("The animal makes a sound");
+        }
+    }
+
+    class Pig : Animal  // Derived class (child) 
+    {
+        public override void animalSound()
+        {
+            Console.WriteLine("The pig says: wee wee");
+        }
+    }
+
+    class Dog : Animal  // Derived class (child) 
+    {
+        public override void animalSound()
+        {
+            Console.WriteLine("The dog says: bow wow");
+        }
+    }
+    interface IFirstInterface
+    {
+        void myMethod(); // interface method
+    }
+
+    interface ISecondInterface
+    {
+        void myOtherMethod(); // interface method
+    }
+
+    // Implement multiple interfaces
+    class DemoClass : IFirstInterface, ISecondInterface
+    {
+        public void myMethod()
+        {
+            Console.WriteLine("Some text..");
+        }
+        public void myOtherMethod()
+        {
+            Console.WriteLine("Some other text...");
+        }
+    }
+
     class Program
     {
-        string color = "red";
+  
         static void Main(string[] args)
         {
+            DemoClass myObj = new DemoClass();
+            myObj.myMethod();
+
+            //File.Create("filename.txt");
+
+
+
+            Level myVar = Level.Low;
+            EnumCase(myVar);
+        }
+        static void EnumCase(Level myVar)
+        {
             
-            //AddTwoNumber();
-            //MyMethod("child3","","hello");
-            /*int myNum1 = PlusMethod(8, 5);
-            double myNum2 = PlusMethod(4.3, 6.26);
-            Console.WriteLine("Int: " + myNum1);
-            Console.WriteLine("Double: " + myNum2);
-            */
-            Program a = new Program();
-            Console.WriteLine(a.color);
+            switch (myVar)
+            {
+                case Level.Low:
+                    Console.WriteLine("Low Level");
+                    break;
+                case Level.Medium:
+                    Console.WriteLine("Medium Level");
+                    break;
+                case Level.High:
+                    Console.WriteLine("High Level");
+                    break;
+
+            }
+
         }
         static int AddTwoNumber()
         {

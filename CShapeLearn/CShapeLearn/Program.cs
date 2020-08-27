@@ -65,15 +65,40 @@ namespace CShapeLearn
   
         static void Main(string[] args)
         {
+            checkAge(15);
             DemoClass myObj = new DemoClass();
             myObj.myMethod();
 
             //File.Create("filename.txt");
-
-
-
-            Level myVar = Level.Low;
-            EnumCase(myVar);
+            //int[] myNumbers1 = { 1, 2, 3 };
+            //Console.WriteLine(myNumbers1[10]);
+            try
+            {
+                int[] myNumbers = { 1, 2, 3 };
+                Console.WriteLine(myNumbers[10]);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("The 'try catch' is finished.");
+            }
+            //Level myVar = Level.Low;
+            //EnumCase(myVar);
+        }
+        static void checkAge(int age)
+        {
+            if (age < 18)
+            {
+                throw new FileNotFoundException("File not found");
+                throw new ArithmeticException("Access denied - You must be at least 18 years old.");
+            }
+            else
+            {
+                Console.WriteLine("Access granted - You are old enough!");
+            }
         }
         static void EnumCase(Level myVar)
         {
